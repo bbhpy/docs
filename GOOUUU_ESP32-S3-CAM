@@ -1,6 +1,6 @@
-GOOUUU_ESP32-S3-CAM
-ESP32-S3-CAM (GOOUUU ESP32-S3-CAM)
-
+# GOOUUU_ESP32-S3-CAM
+ESP32-S3-CAM    (GOOUUU ESP32-S3-CAM)
+```
 ESP32-S3-CAM    (GOOUUU ESP32-S3-CAM)
 
 (Same pinout as ESP32-S3-WROOM (CAM), & ESP32-S3-DevKitC-1)
@@ -324,3 +324,6 @@ void showSpectrum() {
 }
 
 ====================================================================
+```
+
+C笔记
