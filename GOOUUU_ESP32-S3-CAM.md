@@ -326,4 +326,168 @@ void showSpectrum() {
 ====================================================================
 ```
 
+
+好的，我根据你提供的正确文字内容，为你整理了一份**ESP32-S3-CAM 清晰引脚功能表**，分为多个功能模块，方便查阅。
+
+---
+
+## ESP32-S3-CAM 引脚功能表
+
+### 一、板载 40-Pin 排针引脚（按编号排列）
+
+| 引脚 | 功能 | 说明 |
+| --- | --- | --- |
+| 1 | 3V3 | 3.3V 电源输出 |
+| 2 | EN | 复位/使能（RST），低电平复位 |
+| 3 | IO4 | CAM_SIOD（I²C SDA）/ ADC1_CH3 |
+| 4 | IO5 | CAM_SIOC（I²C SCL）/ ADC1_CH4 |
+| 5 | IO6 | CAM_VSYNC / ADC1_CH5 |
+| 6 | IO7 | CAM_HREF / ADC1_CH6 |
+| 7 | IO15 | CAM_XCLK / ADC2_CH4 |
+| 8 | IO16 | CAM_Y9 (D7) / ADC2_CH5 |
+| 9 | IO17 | CAM_Y8 (D6) / ADC2_CH6 |
+| 10 | IO18 | CAM_Y7 (D5) / ADC2_CH7 |
+| 11 | IO8 | CAM_Y4 (D2) / ADC1_CH7 |
+| 12 | IO3 | 按键（Switch）/ ADC1_CH2 |
+| 13 | IO46 | 按键（Shutter） |
+| 14 | IO9 | CAM_Y3 (D1) / ADC1_CH8 |
+| 15 | IO10 | CAM_Y5 (D3) / ADC1_CH9 |
+| 16 | IO11 | CAM_Y2 (D0) |
+| 17 | IO12 | CAM_Y6 (D4) |
+| 18 | IO13 | CAM_PCLK / ADC2_CH3 |
+| 19 | IO14 | ADC2_CH2 / A13 |
+| 20 | 5V | 5V 电源输入 |
+| 21 | GND | 电源地 |
+| 22 | IO19 | USB D+ / ADC2_CH8 |
+| 23 | IO20 | USB D- / ADC2_CH9 |
+| 24 | IO21 | 背光控制（BLK）/ PWM |
+| 25 | IO47 | SPI LCD CS |
+| 26 | IO48 | RGB LED（WS2812 NeoPixel） |
+| 27 | IO45 | SPI LCD DC |
+| 28 | IO0 | BOOT / RST 按键 |
+| 29 | IO35 | PSRAM（内部使用，不推荐外接） |
+| 30 | IO36 | PSRAM（内部使用，不推荐外接） |
+| 31 | IO37 | PSRAM（内部使用，不推荐外接） |
+| 32 | IO38 | SD_DATA（SDMMC 数据） |
+| 33 | IO39 | SD_CLK（SDMMC 时钟） |
+| 34 | IO40 | SD_CMD（SDMMC 命令） |
+| 35 | IO41 | SPI LCD MOSI |
+| 36 | IO42 | SPI LCD SCLK |
+| 37 | IO2 | I²C SCL / ADC1_CH1 / QWIIC SCL |
+| 38 | IO1 | I²C SDA / ADC1_CH0 / QWIIC SDA |
+| 39 | IO44 | U0RXD（串口接收）/ LED |
+| 40 | IO43 | U0TXD（串口发送）/ LED |
+
+---
+
+### 二、摄像头接口引脚（DVP）
+
+| 摄像头信号 | GPIO | 说明 |
+| --- | --- | --- |
+| CAM_SIOD | IO4 | I²C 数据 |
+| CAM_SIOC | IO5 | I²C 时钟 |
+| CAM_VSYNC | IO6 | 垂直同步 |
+| CAM_HREF | IO7 | 水平参考 |
+| CAM_XCLK | IO15 | 主时钟输出 |
+| CAM_Y9 (D7) | IO16 | 数据位 D7 |
+| CAM_Y8 (D6) | IO17 | 数据位 D6 |
+| CAM_Y7 (D5) | IO18 | 数据位 D5 |
+| CAM_Y4 (D2) | IO8 | 数据位 D2 |
+| CAM_Y3 (D1) | IO9 | 数据位 D1 |
+| CAM_Y5 (D3) | IO10 | 数据位 D3 |
+| CAM_Y2 (D0) | IO11 | 数据位 D0 |
+| CAM_Y6 (D4) | IO12 | 数据位 D4 |
+| CAM_PCLK | IO13 | 像素时钟 |
+
+---
+
+### 三、SPI LCD 接口（4-SPI）
+
+| LCD 信号 | GPIO | 说明 |
+| --- | --- | --- |
+| SCLK | IO42 | 串行时钟 |
+| MOSI | IO41 | 主机输出从机输入（数据） |
+| DC | IO45 | 数据/命令选择 |
+| CS | IO47 | 片选（低电平有效） |
+| BLK | IO21 | 背光控制（PWM） |
+| RST | IO0 | 复位（可与 BOOT 按键共用） |
+
+---
+
+### 四、SD 卡接口（SDMMC 1-bit 模式）
+
+| SD 卡信号 | GPIO | 说明 |
+| --- | --- | --- |
+| SD_CLK | IO39 | 时钟 |
+| SD_CMD | IO40 | 命令 |
+| SD_DATA | IO38 | 数据 |
+
+> 使用`SD_MMC.h`库驱动，已内置支持。
+
+---
+
+### 五、I²C 接口（QWIIC）
+
+| 信号 | GPIO | 说明 |
+| --- | --- | --- |
+| SDA | IO1 | I²C 数据 |
+| SCL | IO2 | I²C 时钟 |
+
+---
+
+### 六、其他板载资源
+
+| 功能 | GPIO | 说明 |
+| --- | --- | --- |
+| RGB LED | IO48 | WS2812 NeoPixel，可编程全彩 LED |
+| BOOT 按键 | IO0 | 按住后复位进入下载模式 |
+| RST 按键 | EN | 复位芯片 |
+| Switch 按键 | IO3 | 用户自定义按键 |
+| Shutter 按键 | IO46 | 用户自定义按键 |
+| UART0 TX | IO43 | 串口打印/通信 |
+| UART0 RX | IO44 | 串口打印/通信 |
+
+---
+
+### 七、⚠️ 不可用 GPIO 说明
+
+以下 GPIO 被内部**SPI Flash / PSRAM**占用，**不应外接任何设备**：
+
+| GPIO | 用途 |
+| --- | --- |
+| GPIO26 | Flash/PSRAM SPICS1 |
+| GPIO27 | Flash/PSRAM SPIHD |
+| GPIO28 | Flash/PSRAM SPIWP |
+| GPIO29 | Flash/PSRAM SPICS0 |
+| GPIO30 | Flash/PSRAM SPICLK |
+| GPIO31 | Flash/PSRAM SPIQ |
+| GPIO32 | Flash/PSRAM SPID |
+
+> 这些引脚在 ESP32-S3-CAM 板上通常未引出，但如果你的板子有引出，请避免使用。
+
+---
+
+### 八、ADC 输入通道
+
+| ADC 通道 | GPIO | ADC 通道 | GPIO |
+| --- | --- | --- | --- |
+| ADC1_CH0 | IO1 | ADC2_CH0 | IO11 |
+| ADC1_CH1 | IO2 | ADC2_CH1 | IO12 |
+| ADC1_CH2 | IO3 | ADC2_CH2 | IO14 |
+| ADC1_CH3 | IO4 | ADC2_CH3 | IO13 |
+| ADC1_CH4 | IO5 | ADC2_CH4 | IO15 |
+| ADC1_CH5 | IO6 | ADC2_CH5 | IO16 |
+| ADC1_CH6 | IO7 | ADC2_CH6 | IO17 |
+| ADC1_CH7 | IO8 | ADC2_CH7 | IO18 |
+| ADC1_CH8 | IO9 | ADC2_CH8 | IO19 |
+| ADC1_CH9 | IO10 | ADC2_CH9 | IO20 |
+
+---
+
+如果需要我继续帮你：
+
+- 生成**GC9A01 显示屏与 ESP32-S3-CAM 的接线对照表**
+- 或写出**Arduino/ESP-IDF 的显示屏初始化代码**
+
+可以直接告诉我。
 C笔记
